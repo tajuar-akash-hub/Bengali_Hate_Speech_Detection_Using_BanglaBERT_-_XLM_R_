@@ -8,50 +8,46 @@
 # Questions and Answers from BanglaBERT
 
 ## 1. What is `normalizer`?
-The `normalizer` is a utility library designed for text normalization, particularly for Bengali language text. It cleans and standardizes text by:
-- Removing unnecessary characters or symbols.
-- Correcting formatting issues like multiple spaces.
-- Making the text consistent for processing by machine learning models.
+The `normalizer` is a utility library specifically designed for text normalization in Bengali. It:
+- Removes unnecessary characters or symbols.
+- Fixes formatting issues like extra spaces.
+- Ensures the text is consistent and ready for processing by models like BanglaBERT.
 
-In the context of BanglaBERT, the `normalizer` ensures that the input text is properly formatted and free of extraneous characters, which helps improve the accuracy of tokenization and model predictions.
+By using the `normalizer`, preprocessing becomes more efficient, improving tokenization and subsequent model performance.
 
 ---
 
-## 2. What is a `caretaking wheel`?
-This term does not directly apply to the BanglaBERT implementation. If you intended to ask about a related feature or concept, please clarify the question. It might be a typo or a phrase with a specific meaning in another context.
+## 2. What is a `wheel` in Python libraries?
+A `wheel` is a distribution format used for Python packages. It is a pre-built package that can be installed without the need to compile code, making installations faster and more reliable. When you see "Building wheel" during installation, it means the library is being built into this format.
 
 ---
 
 ## 3. Why is `tokenization` important?
-Tokenization is the process of breaking down text into smaller units, like words, subwords, or characters. In the context of BanglaBERT:
-- **Purpose**: Converts raw text into a format that the model understands.
-- **Importance**:
-  - Handles out-of-vocabulary words by breaking them into subwords.
-  - Ensures consistent input size for the model by padding or truncating.
-  - Prepares text for embedding into a numerical format.
+Tokenization is the process of splitting text into smaller units, such as words, subwords, or characters. For BanglaBERT:
+- Converts raw text into numerical inputs that the model can process.
+- Handles out-of-vocabulary words through subword tokenization.
+- Ensures uniform input size via padding and truncation.
 
-BanglaBERT uses a tokenizer specific to its pretrained vocabulary, ensuring that the input aligns with what the model was trained on.
+Tokenization aligns the input text with the model's pretrained vocabulary, significantly improving its ability to understand and process the text.
 
 ---
 
 ## 4. What is `weight decay` in the trainer function?
-Weight decay is a regularization technique used during training to prevent overfitting. It:
-- Adds a penalty to the loss function based on the magnitude of the model weights.
-- Encourages smaller weights, which helps reduce model complexity.
-- Is implemented via the `AdamW` optimizer in the trainer.
-
-In BanglaBERT, weight decay helps the model generalize better to unseen data.
+Weight decay is a regularization technique used to prevent overfitting. It:
+- Penalizes large weights by adding a term to the loss function.
+- Encourages the model to prefer smaller weights, making it less complex and more generalizable.
+- Is implemented in the `AdamW` optimizer, which combines weight decay with adaptive learning rates.
 
 ---
 
 ## 5. What is a `utility function`?
-A utility function is a helper function that performs specific tasks to support the main operations of a program. In BanglaBERT, utility functions include:
-- Loading and preprocessing data.
-- Tokenizing text.
-- Computing evaluation metrics.
-- Handling file saving and loading.
+Utility functions are helper functions that perform specific tasks to simplify the main operations of a program. In BanglaBERT, utility functions include:
+- Data loading and preprocessing.
+- Tokenization of text.
+- Computing evaluation metrics (e.g., accuracy, F1-score).
+- Saving and loading models or checkpoints.
 
-These functions simplify the codebase and make it more modular and maintainable.
+These functions make the codebase modular and easier to maintain.
 
 ---
 
@@ -61,60 +57,96 @@ A checkpoint is a saved state of the model during training. It includes:
 - Optimizer state.
 - Learning rate scheduler state.
 
-Checkpoints allow:
-- Resuming training from a specific point.
-- Restoring the best-performing model after training.
+**Purpose**:
+- Resume training from a specific point if interrupted.
+- Restore the best-performing model for evaluation or deployment.
 
 ---
 
 ## 7. What is `early stopping`?
-Early stopping is a training technique where training is halted if the model's performance on the validation set stops improving after a certain number of epochs. Benefits include:
-- Preventing overfitting.
-- Saving computational resources.
+Early stopping is a training strategy that halts training when the model's performance on the validation set stops improving for a predefined number of epochs. **Benefits**:
+- Prevents overfitting.
+- Saves computational resources by stopping unnecessary training.
 
 ---
 
 ## 8. What is a `checkpoint 20, 30`?
-These likely refer to checkpoints saved at specific epochs, such as the 20th or 30th epoch during training. They capture the model's state at that point, allowing you to analyze or resume training from those specific epochs.
+These refer to checkpoints saved at the 20th and 30th epochs during training. These snapshots allow:
+- Analysis of the model's performance at specific stages.
+- Resumption of training from those points if needed.
 
 ---
 
 ## 9. What is `tokenizer_config.json`?
-This file contains configuration details for the tokenizer, such as:
-- Tokenizer type (e.g., Byte-Pair Encoding, WordPiece).
+This file contains metadata for the tokenizer, including:
+- Tokenizer type (e.g., WordPiece, Byte-Pair Encoding).
 - Vocabulary size.
-- Special tokens (e.g., `[PAD]`, `[CLS]`).
+- Special tokens like `[PAD]`, `[CLS]`, and `[SEP]`.
 
 ---
 
 ## 10. What is `config.json`?
-This file stores the configuration for the pretrained model, including:
-- Model architecture (e.g., number of layers, hidden units).
-- Hyperparameters used during training.
-- Metadata about the model.
+This file defines the model's architecture and settings, such as:
+- Number of layers, hidden units, and attention heads.
+- Training hyperparameters (e.g., learning rate, weight decay).
+- Metadata about the model's purpose and source.
 
 ---
 
 ## 11. What is `sentencepiece.bpe.model`?
-This file is a model for the SentencePiece tokenizer, which implements Byte-Pair Encoding (BPE). It contains:
+This file is part of the SentencePiece tokenizer, implementing Byte-Pair Encoding (BPE). It contains:
 - Vocabulary and subword units.
-- Rules for tokenizing text into subwords.
+- Rules for splitting text into subwords.
 
 ---
 
 ## 12. What is `tokenizer.json`?
-This file is an alternative to `tokenizer_config.json` and includes:
-- Full details about the tokenizer.
-- Token-to-ID mapping.
-- Rules for encoding and decoding text.
+This file provides a full representation of the tokenizer, including:
+- Token-to-ID mappings.
+- Encoding and decoding rules.
+- Additional metadata for tokenization.
 
 ---
 
-## 13. What is `model.safetensors`?
-This file stores the trained model's weights in a safe and efficient format. Compared to the traditional `.bin` format, it:
-- Is faster to load.
-- Provides better compatibility with distributed systems.
-- Ensures safe weight storage with reduced risk of corruption.
+## 13. What is `vocab.txt`?
+This file stores the vocabulary of the tokenizer. It includes:
+- Tokens, subword units, or words.
+- Their corresponding indices for numerical representation.
+- Special tokens like `[PAD]` and `[UNK]`.
+
+---
+
+## 14. What is `model.safetensors`?
+This file stores the trained model's weights in a safer and more efficient format compared to `.bin`. **Advantages**:
+- Faster loading times.
+- Reduced risk of file corruption.
+- Better compatibility for distributed systems.
+
+---
+
+## 15. How to save models and what is saved?
+Models can be saved using the `.save_pretrained()` method from the Hugging Face library. This saves:
+1. **Model weights**: Parameters learned during training.
+2. **Configuration**: Stored in `config.json`, which defines the model's architecture.
+3. **Tokenizer**: Files like `tokenizer.json`, `tokenizer_config.json`, and `vocab.txt`.
+4. **Special files**: Includes `model.safetensors` or `pytorch_model.bin` for weight storage.
+
+**Example**:
+```python
+model.save_pretrained("./model")
+tokenizer.save_pretrained("./model")
+```
+
+---
+
+## 16. What happens when a model is saved to Hugging Face?
+When saving a model to Hugging Face's hub, the following files are uploaded:
+- **`config.json`**: Model architecture and metadata.
+- **`tokenizer.json`**: Tokenizer rules and mappings.
+- **`vocab.txt`**: Vocabulary of the tokenizer.
+- **`model.safetensors` or `pytorch_model.bin`**: Trained weights of the model.
+
+The model is then accessible via the Hugging Face hub, enabling easy sharing and reuse.
 
 ---
 
