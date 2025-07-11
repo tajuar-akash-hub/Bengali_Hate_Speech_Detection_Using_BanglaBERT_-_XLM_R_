@@ -1,6 +1,79 @@
 # Hate_Speech_Detection
 
-## Here's the All Documention of my Implementaiton 
+# About the Repository: Bengali Hate Speech Detection Using BanglaBERT and XLM-R
+
+## Overview
+This repository showcases an advanced implementation for detecting Bengali hate speech using **BanglaBERT** and **XLM-R** models. It incorporates cutting-edge deep learning techniques, preprocessing methods, and tools to classify Bengali text into hate or non-hate speech categories. The repository is structured to provide an end-to-end solution, from data processing to model training and deployment.
+
+## Key Files and Their Purpose
+
+### 1. **BanglaBERT.md**
+- **Purpose**: Serves as the primary documentation for the BanglaBERT implementation. It provides detailed explanations of the techniques used, the purpose of each component, and step-by-step guidance for users.
+
+### 2. **Bangla_OCR.ipynb**
+- **Purpose**: Implements Optical Character Recognition (OCR) for Bengali text. This notebook processes images containing Bengali text and converts them into readable text format, enabling further natural language processing tasks.
+
+### 3. **README.md**
+- **Purpose**: The main README file for the repository. It includes an overview of the repository, setup instructions, and details on how to run each module.
+
+### 4. **banglabert.ipynb**
+- **Purpose**: Contains the implementation of **BanglaBERT** for hate speech detection. This notebook includes:
+  - Data loading and preprocessing.
+  - Model training using the BanglaBERT tokenizer and model.
+  - Evaluation metrics like accuracy, precision, recall, F1-score, and AUC.
+
+### 5. **enhanced_banglabert_hate_speech.ipynb**
+- **Purpose**: Hugging face code to inference the model.
+ 
+
+### 6. **image-to-text-with-gemini.ipynb**
+- **Purpose**: A specialized module for extracting text from images. This notebook integrates with the Gemini platform to convert Bengali text images into text, supporting OCR functionalities.
+
+### 7. **xlm-r.ipynb**
+- **Purpose**: Implements the **XLM-R** model for multilingual hate speech detection. This notebook leverages the cross-lingual capabilities of XLM-R for handling code-mixed text and evaluating the model's performance on Bengali hate speech datasets.
+
+### 8. **xlm-r_version_2.ipynb**
+- **Purpose**: An updated version of the XLM-R implementation. It includes:
+  - Fine-tuning strategies for improved performance.
+  - Advanced evaluation metrics.
+  - Comparisons with the BanglaBERT model.
+
+## Languages Used
+The repository primarily uses **Jupyter Notebooks** and Python for implementation. 
+
+## Features
+- Preprocessing and normalization for Bengali text.
+- Data augmentation techniques like synonym replacement, random insertion, and deletion.
+- Fine-tuning and training of pretrained models (BanglaBERT and XLM-R).
+- Evaluation metrics for model performance.
+- Model saving and deployment via Hugging Face's platform.
+- OCR functionalities for Bengali text images.
+
+## How to Get Started
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tajuar-akash-hub/Bengali_Hate_Speech_Detection_Using_BanglaBERT_-_XLM_R_
+   cd Bengali_Hate_Speech_Detection_Using_BanglaBERT_-_XLM_R_
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install normalizer transformers torch datasets pandas scikit-learn
+   ```
+
+3. Explore the notebooks for specific functionalities:
+   - For BanglaBERT implementation: `banglabert.ipynb`
+   - For OCR: `Bangla_OCR.ipynb`
+   - For enhanced hate speech detection: `enhanced_banglabert_hate_speech.ipynb`
+
+## Contributions
+Contributions to improve the repository and its functionalities are welcome. Fork the repository and create a pull request for any enhancements or bug fixes.
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+
+## Here's the All Documentions of my Implementaiton 
 
 ### **[BanglaBERT Documentation](https://github.com/tajuar-akash-hub/Bengali_Hate_Speech_Detection_Using_BanglaBERT_-_XLM_R_/blob/main/BanglaBERT.md)**
 
