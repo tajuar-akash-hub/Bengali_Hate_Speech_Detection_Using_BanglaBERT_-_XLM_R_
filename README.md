@@ -1,6 +1,4 @@
-# Hate_Speech_Detection
-
-# About the Repository: Bengali Hate Speech Detection Using BanglaBERT and XLM-R
+# Bengali Hate Speech Detection Using BanglaBERT and XLM-R
 
 ## Overview
 This repository showcases an advanced implementation for detecting Bengali hate speech using **BanglaBERT** and **XLM-R** models. It incorporates cutting-edge deep learning techniques, preprocessing methods, and tools to classify Bengali text into hate or non-hate speech categories. The repository is structured to provide an end-to-end solution, from data processing to model training and deployment.
